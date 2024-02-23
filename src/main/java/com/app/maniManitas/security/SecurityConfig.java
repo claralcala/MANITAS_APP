@@ -38,6 +38,7 @@ public class SecurityConfig {
 			.authorizeHttpRequests() //Peticiones http deben estar permitidas
 			.requestMatchers("/usuario/**").permitAll() //todas las url de usuario
 			.requestMatchers(HttpMethod.POST, "/category/**").hasAnyAuthority("ADMIN")
+			.requestMatchers(HttpMethod.GET, "/category/**").hasAnyAuthority("ADMIN")
 			.and()
 			.httpBasic();
 		
